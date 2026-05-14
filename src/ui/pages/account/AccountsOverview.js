@@ -1,6 +1,6 @@
-import { expect, testStep } from '../../common/helpers/pwHelpers';
+import { expect, testStep } from '../../../common/helpers/pwHelpers';
 
-export class SignInPage {
+export class AccountsOverview {
   constructor(page, userId = 0) {
     this.page = page;
     this.userId = userId;
@@ -22,9 +22,11 @@ export class SignInPage {
     });
   }
 
-  async assertSomething() {
-    await this.step(`Assert something`, async () => {
-      expect(true).toBe(true);
+  async assertWelcomeBannerShowsFullName(firstName, lastName) {
+    await this.step(`Assert welcome banner is shown`, async () => {
+      await expect(this.page.locator('#leftPanel')).toContainText(
+        `Welcome ${firstName} ${lastName}`,
+      );
     });
   }
 }
