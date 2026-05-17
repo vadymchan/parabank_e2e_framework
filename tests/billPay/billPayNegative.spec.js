@@ -1,0 +1,137 @@
+import { test } from '../_fixtures/fixtures';
+import {
+  BILL_PAY_PAYEE_NAME_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_ADDRESS_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_CITY_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_STATE_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_ZIP_CODE_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_PHONE_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_ACCOUNT_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_ACCOUNT_INVALID_ERROR_MESSAGE,
+  BILL_PAY_VERIFY_ACCOUNT_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_VERIFY_ACCOUNT_INVALID_ERROR_MESSAGE,
+  BILL_PAY_VERIFY_ACCOUNT_MISMATCHED_ERROR_MESSAGE,
+  BILL_PAY_AMOUNT_EMPTY_ERROR_MESSAGE,
+  BILL_PAY_AMOUNT_INVALID_ERROR_MESSAGE,
+} from '../../src/ui/constants/transactionMessages';
+
+test.describe(`Bill Payment negative tests`, () => {
+  test(`Shows error when all fields are empty`, async ({
+    signedUpUserWithOneAccount,
+    billPayPage,
+  }) => {
+    await billPayPage.open();
+
+    await billPayPage.clickSendPaymentButton();
+
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.payeeNameErrorMessage,
+      BILL_PAY_PAYEE_NAME_EMPTY_ERROR_MESSAGE,
+    );
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.addressErrorMessage,
+      BILL_PAY_ADDRESS_EMPTY_ERROR_MESSAGE,
+    );
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.cityErrorMessage,
+      BILL_PAY_CITY_EMPTY_ERROR_MESSAGE,
+    );
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.stateErrorMessage,
+      BILL_PAY_STATE_EMPTY_ERROR_MESSAGE,
+    );
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.zipCodeErrorMessage,
+      BILL_PAY_ZIP_CODE_EMPTY_ERROR_MESSAGE,
+    );
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.phoneErrorMessage,
+      BILL_PAY_PHONE_EMPTY_ERROR_MESSAGE,
+    );
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.accountEmptyErrorMessage,
+      BILL_PAY_ACCOUNT_EMPTY_ERROR_MESSAGE,
+    );
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.verifyAccountEmptyErrorMessage,
+      BILL_PAY_VERIFY_ACCOUNT_EMPTY_ERROR_MESSAGE,
+    );
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.amountEmptyErrorMessage,
+      BILL_PAY_AMOUNT_EMPTY_ERROR_MESSAGE,
+    );
+  });
+
+  test(`Shows error when 'Account' input field is invalid`, async ({
+    signedUpUserWithOneAccount,
+    billPayPage,
+  }) => {
+    const toAccountId = 'abc';
+
+    await billPayPage.open();
+
+    await billPayPage.fillFormInputFields({ account: toAccountId });
+
+    await billPayPage.clickSendPaymentButton();
+
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.accountInvalidErrorMessage,
+      BILL_PAY_ACCOUNT_INVALID_ERROR_MESSAGE,
+    );
+  });
+
+  test(`Shows error when 'Verify Account' input field is invalid`, async ({
+    signedUpUserWithOneAccount,
+    billPayPage,
+  }) => {
+    const toAccountId = 'abc';
+
+    await billPayPage.open();
+
+    await billPayPage.fillFormInputFields({ verifyAccount: toAccountId });
+
+    await billPayPage.clickSendPaymentButton();
+
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.verifyAccountInvalidErrorMessage,
+      BILL_PAY_VERIFY_ACCOUNT_INVALID_ERROR_MESSAGE,
+    );
+  });
+
+  test(`Shows error when 'Verify Account' input field is mismatched`, async ({
+    signedUpUserWithOneAccount,
+    billPayPage,
+  }) => {
+    const toAccountId = 42000;
+    const verifyToAccountId = 42001;
+    await billPayPage.open();
+
+    await billPayPage.fillFormInputFields({ account: toAccountId });
+    await billPayPage.fillFormInputFields({ verifyAccount: verifyToAccountId });
+
+    await billPayPage.clickSendPaymentButton();
+
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.verifyAccountMismatchedErrorMessage,
+      BILL_PAY_VERIFY_ACCOUNT_MISMATCHED_ERROR_MESSAGE,
+    );
+  });
+
+  test(`Shows error when 'Amount' input field is invalid`, async ({
+    signedUpUserWithOneAccount,
+    billPayPage,
+  }) => {
+    const amount = 'abc';
+
+    await billPayPage.open();
+
+    await billPayPage.fillFormInputFields({ amount });
+
+    await billPayPage.clickSendPaymentButton();
+
+    await billPayPage.assertErrorMessageHasText(
+      billPayPage.amountInvalidErrorMessage,
+      BILL_PAY_AMOUNT_INVALID_ERROR_MESSAGE,
+    );
+  });
+});

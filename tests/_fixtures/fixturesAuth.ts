@@ -2,11 +2,13 @@ import { test as base } from '@playwright/test';
 import { SignUpPage } from '../../src/ui/pages/auth/SignUpPage';
 import { SignInPage } from '../../src/ui/pages/auth/SignInPage';
 import { LogOutPage } from '../../src/ui/pages/auth/LogOutPage';
-import { CustomerLookup } from '../../src/ui/pages/auth/CustomerLookup';
+import { CustomerLookupPage } from '../../src/ui/pages/auth/CustomerLookupPage';
 
 export const test = base.extend<{
   signUpPage;
   signInPage;
+  logOutPage;
+  customerLookupPage;
 }>({
   signUpPage: async ({ page }, use) => {
     const signUpPage = new SignUpPage(page);
@@ -23,9 +25,9 @@ export const test = base.extend<{
 
     await use(logOutPage);
   },
-  customerLookup: async ({ page }, use) => {
-    const customerLookup = new CustomerLookup(page);
+  customerLookupPage: async ({ page }, use) => {
+    const customerLookupPage = new CustomerLookupPage(page);
 
-    await use(customerLookup);
+    await use(customerLookupPage);
   },
 });

@@ -1,12 +1,12 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
 
-test(`Sign In test`, async ({
+test(`Sign In positive tests`, async ({
   signInPage,
   userData,
   logOutPage,
   signUpPage,
-  accountsOverview,
+  accountsOverviewPage,
 }) => {
   await signUpUser(signUpPage, userData);
 
@@ -16,7 +16,7 @@ test(`Sign In test`, async ({
   await signInPage.fillPasswordField(userData.password);
 
   await signInPage.clickLogInButton();
-  await accountsOverview.assertWelcomeBannerShowsFullName(
+  await accountsOverviewPage.assertWelcomeMessageShowsFullName(
     userData.firstName,
     userData.lastName,
   );

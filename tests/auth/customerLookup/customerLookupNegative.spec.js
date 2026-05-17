@@ -13,44 +13,44 @@ import { generateNewUserData } from '../../../src/common/testData/generateNewUse
 import { Logger } from '../../../src/common/logger/Logger';
 
 test.describe(`Customer lookup negative tests`, () => {
-  test(`Empty fields`, async ({ customerLookup }) => {
-    await customerLookup.open();
-    await customerLookup.clickFindMyLoginInfoButton();
-    await customerLookup.assertErrorMessage(
-      customerLookup.firstNameErrorMessage,
+  test(`Empty fields`, async ({ customerLookupPage }) => {
+    await customerLookupPage.open();
+    await customerLookupPage.clickFindMyLoginInfoButton();
+    await customerLookupPage.assertErrorMessage(
+      customerLookupPage.firstNameErrorMessage,
       FIRST_NAME_EMPTY_ERROR_MESSAGE,
     );
-    await customerLookup.assertErrorMessage(
-      customerLookup.lastNameErrorMessage,
+    await customerLookupPage.assertErrorMessage(
+      customerLookupPage.lastNameErrorMessage,
       LAST_NAME_EMPTY_ERROR_MESSAGE,
     );
-    await customerLookup.assertErrorMessage(
-      customerLookup.addressErrorMessage,
+    await customerLookupPage.assertErrorMessage(
+      customerLookupPage.addressErrorMessage,
       ADDRESS_EMPTY_ERROR_MESSAGE,
     );
-    await customerLookup.assertErrorMessage(
-      customerLookup.cityErrorMessage,
+    await customerLookupPage.assertErrorMessage(
+      customerLookupPage.cityErrorMessage,
       CITY_EMPTY_ERROR_MESSAGE,
     );
-    await customerLookup.assertErrorMessage(
-      customerLookup.stateErrorMessage,
+    await customerLookupPage.assertErrorMessage(
+      customerLookupPage.stateErrorMessage,
       STATE_EMPTY_ERROR_MESSAGE,
     );
-    await customerLookup.assertErrorMessage(
-      customerLookup.zipCodeErrorMessage,
+    await customerLookupPage.assertErrorMessage(
+      customerLookupPage.zipCodeErrorMessage,
       ZIP_CODE_EMPTY_ERROR_MESSAGE,
     );
-    await customerLookup.assertErrorMessage(
-      customerLookup.ssnErrorMessage,
+    await customerLookupPage.assertErrorMessage(
+      customerLookupPage.ssnErrorMessage,
       SSN_EMPTY_ERROR_MESSAGE,
     );
   });
 
-  test(`Incorrect data`, async ({ userData, customerLookup }) => {
-    await customerLookup.open();
-    await customerLookup.fillForm(userData);
-    await customerLookup.clickFindMyLoginInfoButton();
-    await customerLookup.assertSubmitErrorMessage(
+  test(`Incorrect data`, async ({ userData, customerLookupPage }) => {
+    await customerLookupPage.open();
+    await customerLookupPage.fillForm(userData);
+    await customerLookupPage.clickFindMyLoginInfoButton();
+    await customerLookupPage.assertSubmitErrorMessage(
       CUSTOMER_LOOKUP_SUBMIT_ERROR_MESSAGE,
     );
   });

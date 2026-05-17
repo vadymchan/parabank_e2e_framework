@@ -1,6 +1,6 @@
 import { expect, testStep } from '../../../common/helpers/pwHelpers';
 
-export class CustomerLookup {
+export class CustomerLookupPage {
   constructor(page, userId = 0) {
     this.page = page;
     this.userId = userId;
@@ -29,7 +29,7 @@ export class CustomerLookup {
   }
 
   async open() {
-    await this.step(`Open 'Customer Lookup' page`, async () => {
+    await this.step(`Navigate to 'Customer Lookup' page`, async () => {
       await this.page.goto('lookup.htm');
     });
   }

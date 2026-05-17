@@ -16,7 +16,7 @@ export class SignInPage {
   }
 
   async open() {
-    await this.step(`Open 'Sign In' page`, async () => {
+    await this.step(`Navigate to 'Sign In' page`, async () => {
       await this.page.goto('index.htm');
     });
   }
