@@ -32,3 +32,10 @@ export const FIND_TRANSACTIONS_DATE_INVALID_FORMAT_ERROR_MESSAGE =
 export const FIND_TRANSACTIONS_DATE_RANGE_INVALID_FORMAT_ERROR_MESSAGE =
   'Invalid date format';
 export const FIND_TRANSACTIONS_AMOUNT_INVALID_ERROR_MESSAGE = 'Invalid amount';
+
+export const REQUEST_LOAN_SUCCESS_MESSAGE =
+  'Congratulations, your loan has been approved.';
+export const REQUEST_LOAN_INSUFFICIENT_FUNDS_FOR_AMOUNT_ERROR_MESSAGE =
+  'We cannot grant a loan in that amount with your available funds.';
+export const REQUEST_LOAN_INSUFFICIENT_FUNDS_FOR_DOWN_PAYMENT_ERROR_MESSAGE =
+  'You do not have sufficient funds for the given down payment.';

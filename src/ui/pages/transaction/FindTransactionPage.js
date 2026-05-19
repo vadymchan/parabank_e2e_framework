@@ -45,7 +45,7 @@ export class FindTransactionPage {
 
   async fillFindByTransactionIdField(transactionId) {
     await this.step(
-      `Fill 'Find By Transaction ID' input field with '${transactionId}'`,
+      `Fill 'Find By Transaction ID' field with '${transactionId}'`,
       async () => {
         await this.findByTransactionIdField.fill(`${transactionId}`);
       },
@@ -53,17 +53,14 @@ export class FindTransactionPage {
   }
 
   async fillFindByDateField(date) {
-    await this.step(
-      `Fill 'Find By Date' input field with '${date}'`,
-      async () => {
-        await this.findByDateField.fill(`${date}`);
-      },
-    );
+    await this.step(`Fill 'Find By Date' field with '${date}'`, async () => {
+      await this.findByDateField.fill(`${date}`);
+    });
   }
 
   async fillFindByDateRangeInputs(fromDate, toDate) {
     await this.step(
-      `Fill 'Find By Date Range' input field with from='${fromDate}', to='${toDate}'`,
+      `Fill 'Find By Date Range' field with from='${fromDate}', to='${toDate}'`,
       async () => {
         await this.findByFromDateField.fill(`${fromDate}`);
         await this.findByToDateField.fill(`${toDate}`);
@@ -73,7 +70,7 @@ export class FindTransactionPage {
 
   async fillFindByAmountField(amount) {
     await this.step(
-      `Fill 'Find By Amount' input field with '${amount}'`,
+      `Fill 'Find By Amount' field with '${amount}'`,
       async () => {
         await this.findByAmountField.fill(`${amount}`);
       },

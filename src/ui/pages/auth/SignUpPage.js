@@ -43,7 +43,7 @@ export class SignUpPage {
   }
 
   async open() {
-    await this.step(`Navigate to registration page`, async () => {
+    await this.step(`Navigate to 'Sign Up' page`, async () => {
       await this.page.goto('register.htm');
     });
   }

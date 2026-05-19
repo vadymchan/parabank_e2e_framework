@@ -22,7 +22,7 @@ export class SignInPage {
   }
 
   async fillUsernameField(username) {
-    await this.step(`Fill 'Username' field`, async () => {
+    await this.step(`Fill 'Username' field with '${username}'`, async () => {
       await this.usernameField.fill(username);
     });
   }
