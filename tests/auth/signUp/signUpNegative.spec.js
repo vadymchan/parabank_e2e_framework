@@ -14,8 +14,11 @@ import {
   SIGN_UP_PASSWORDS_MISMATCH_ERROR_MESSAGE,
   SIGN_UP_USERNAME_ALREADY_EXISTS_ERROR_MESSAGE,
 } from '../../../src/ui/constants/authMessages';
+import * as allure from 'allure-js-commons';
 
 test(`Try to sign up with empty fields`, async ({ signUpPage }) => {
+  await allure.severity('normal');
+
   await signUpPage.open();
 
   await signUpPage.clickRegisterButton();
@@ -66,6 +69,8 @@ test(`Sign up with different confirm password`, async ({
   userData,
   signUpPage,
 }) => {
+  await allure.severity('normal');
+
   const confirmPassword = userData.password.slice(1);
 
   await signUpPage.open();
@@ -80,6 +85,8 @@ test(`Sign up with different confirm password`, async ({
 });
 
 test(`Sign up with existing username`, async ({ userData, signUpPage }) => {
+  await allure.severity('normal');
+
   await signUpPage.open();
 
   await signUpPage.fillForm(userData);

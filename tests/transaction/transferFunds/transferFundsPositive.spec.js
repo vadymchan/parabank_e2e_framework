@@ -4,6 +4,7 @@ import {
   parseAmount,
   formatAmount,
 } from '../../../src/common/helpers/currencyHelpers';
+import * as allure from 'allure-js-commons';
 
 const testParameters = [
   { amount: '50' },
@@ -30,6 +31,8 @@ test.describe(`Transfer Funds positive tests`, () => {
       transferFundsPage,
       accountsOverviewPage,
     }) => {
+      await allure.severity('blocker');
+
       await transferFundsPage.open();
       await transferFundsPage.fillAmountField(amount);
       await transferFundsPage.selectFromAccountId(fromAccountId);

@@ -1,6 +1,7 @@
 import { test } from '../_fixtures/fixtures';
 import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
 import { OPEN_NEW_ACCOUNT_SUCCESS_MESSAGE } from '../../src/ui/constants/accountMessages';
+import * as allure from 'allure-js-commons';
 
 const testParameters = [
   { accountType: 'CHECKING' },
@@ -13,6 +14,8 @@ test.describe(`Open New Account`, () => {
       openAccountPage,
       signedUpUserWithOneAccount,
     }) => {
+      await allure.severity('critical');
+
       const { accountData } = signedUpUserWithOneAccount;
       const fromAccountId = accountData.accountId;
       await openAccountPage.open();

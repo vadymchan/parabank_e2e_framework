@@ -1,5 +1,6 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
+import * as allure from 'allure-js-commons';
 
 test(`Sign In positive tests`, async ({
   signInPage,
@@ -8,6 +9,8 @@ test(`Sign In positive tests`, async ({
   signUpPage,
   accountsOverviewPage,
 }) => {
+  await allure.severity('critical');
+
   await signUpUser(signUpPage, userData);
 
   await logOutPage.clickLogOutButton();

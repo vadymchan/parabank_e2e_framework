@@ -11,9 +11,12 @@ import {
 } from '../../../src/ui/constants/authMessages';
 import { generateNewUserData } from '../../../src/common/testData/generateNewUserData';
 import { Logger } from '../../../src/common/logger/Logger';
+import * as allure from 'allure-js-commons';
 
 test.describe(`Customer lookup negative tests`, () => {
   test(`Empty fields`, async ({ customerLookupPage }) => {
+    await allure.severity('normal');
+
     await customerLookupPage.open();
     await customerLookupPage.clickFindMyLoginInfoButton();
     await customerLookupPage.assertErrorMessage(
@@ -47,6 +50,8 @@ test.describe(`Customer lookup negative tests`, () => {
   });
 
   test(`Incorrect data`, async ({ userData, customerLookupPage }) => {
+    await allure.severity('normal');
+
     await customerLookupPage.open();
     await customerLookupPage.fillForm(userData);
     await customerLookupPage.clickFindMyLoginInfoButton();

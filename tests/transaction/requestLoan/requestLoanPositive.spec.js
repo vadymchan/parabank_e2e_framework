@@ -1,5 +1,6 @@
 import { test } from '../../_fixtures/fixtures';
 import { REQUEST_LOAN_SUCCESS_MESSAGE } from '../../../src/ui/constants/transactionMessages';
+import * as allure from 'allure-js-commons';
 
 test.describe(`Request Loan positive tests`, () => {
   const amount = '1000';
@@ -9,6 +10,8 @@ test.describe(`Request Loan positive tests`, () => {
     signedUpUserWithOneAccount,
     requestLoanPage,
   }) => {
+    await allure.severity('critical');
+
     const { accountData } = signedUpUserWithOneAccount;
     const fromAccountId = accountData.accountId;
     await requestLoanPage.open();

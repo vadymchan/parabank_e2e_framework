@@ -1,10 +1,10 @@
 import { test } from '../../_fixtures/fixtures';
 import { GENERIC_SERVER_ERROR_MESSAGE } from '../../../src/ui/constants/genericMessages';
-
 import {
   REQUEST_LOAN_INSUFFICIENT_FUNDS_FOR_AMOUNT_ERROR_MESSAGE,
   REQUEST_LOAN_INSUFFICIENT_FUNDS_FOR_DOWN_PAYMENT_ERROR_MESSAGE,
 } from '../../../src/ui/constants/transactionMessages';
+import * as allure from 'allure-js-commons';
 
 const testParameters = [
   {
@@ -27,6 +27,7 @@ test.describe(`Request Loan negative tests`, () => {
     signedUpUserWithOneAccount,
     requestLoanPage,
   }) => {
+    await allure.severity('normal');
     await requestLoanPage.open();
     await requestLoanPage.clickApplyNowButton();
     await requestLoanPage.assertRequestLoanErrorHasText(
@@ -39,6 +40,8 @@ test.describe(`Request Loan negative tests`, () => {
       signedUpUserWithOneAccount,
       requestLoanPage,
     }) => {
+      await allure.severity('critical');
+
       const { accountData } = signedUpUserWithOneAccount;
       const fromAccountId = accountData.accountId;
 

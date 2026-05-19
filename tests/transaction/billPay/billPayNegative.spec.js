@@ -14,12 +14,15 @@ import {
   BILL_PAY_AMOUNT_REQUIRED_ERROR_MESSAGE,
   BILL_PAY_AMOUNT_INVALID_ERROR_MESSAGE,
 } from '../../../src/ui/constants/transactionMessages';
+import * as allure from 'allure-js-commons';
 
 test.describe(`Bill Payment negative tests`, () => {
   test(`Shows error when all fields are empty`, async ({
     signedUpUserWithOneAccount,
     billPayPage,
   }) => {
+    await allure.severity('normal');
+
     await billPayPage.open();
 
     await billPayPage.clickSendPaymentButton();
@@ -66,6 +69,8 @@ test.describe(`Bill Payment negative tests`, () => {
     signedUpUserWithOneAccount,
     billPayPage,
   }) => {
+    await allure.severity('critical');
+
     const toAccountId = 'abc';
 
     await billPayPage.open();
@@ -84,6 +89,8 @@ test.describe(`Bill Payment negative tests`, () => {
     signedUpUserWithOneAccount,
     billPayPage,
   }) => {
+    await allure.severity('critical');
+
     const toAccountId = 'abc';
 
     await billPayPage.open();
@@ -102,6 +109,8 @@ test.describe(`Bill Payment negative tests`, () => {
     signedUpUserWithOneAccount,
     billPayPage,
   }) => {
+    await allure.severity('blocker');
+
     const toAccountId = 42000;
     const verifyToAccountId = 42001;
     await billPayPage.open();
@@ -121,6 +130,8 @@ test.describe(`Bill Payment negative tests`, () => {
     signedUpUserWithOneAccount,
     billPayPage,
   }) => {
+    await allure.severity('critical');
+
     const amount = 'abc';
 
     await billPayPage.open();

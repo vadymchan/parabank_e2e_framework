@@ -1,5 +1,6 @@
 import { test } from '../../_fixtures/fixtures';
 import { GENERIC_SERVER_ERROR_MESSAGE } from '../../../src/ui/constants/genericMessages';
+import * as allure from 'allure-js-commons';
 
 const testParameters = [
   { scenario: 'is empty', amount: '' },
@@ -25,6 +26,8 @@ test.describe(`Transfer Funds negative tests`, () => {
       transferFundsPage,
       accountsOverviewPage,
     }) => {
+      await allure.severity('normal');
+
       await transferFundsPage.open();
       await transferFundsPage.fillAmountField(amount);
       await transferFundsPage.selectFromAccountId(fromAccountId);

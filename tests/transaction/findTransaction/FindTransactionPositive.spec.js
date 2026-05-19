@@ -1,6 +1,7 @@
 import { test } from '../../_fixtures/fixtures';
 import { shiftDate } from '../../../src/common/helpers/timeHelpers';
 import { parseAmount } from '../../../src/common/helpers/currencyHelpers';
+import * as allure from 'allure-js-commons';
 
 test.describe(`Find Transaction positive tests`, () => {
   let fromAccountId;
@@ -19,6 +20,8 @@ test.describe(`Find Transaction positive tests`, () => {
   test(`Finds transaction by Transaction ID`, async ({
     findTransactionPage,
   }) => {
+    await allure.severity('normal');
+
     await findTransactionPage.open();
 
     await findTransactionPage.selectAccountId(fromAccountId);
@@ -30,6 +33,8 @@ test.describe(`Find Transaction positive tests`, () => {
   });
 
   test(`Finds transaction by Date`, async ({ findTransactionPage }) => {
+    await allure.severity('normal');
+
     await findTransactionPage.open();
 
     await findTransactionPage.selectAccountId(fromAccountId);
@@ -39,6 +44,8 @@ test.describe(`Find Transaction positive tests`, () => {
   });
 
   test(`Finds transaction by Date Range`, async ({ findTransactionPage }) => {
+    await allure.severity('normal');
+
     const fromDate = shiftDate(transactionData.date, { days: -1 });
     const toDate = shiftDate(transactionData.date, { days: 1 });
 
@@ -51,6 +58,8 @@ test.describe(`Find Transaction positive tests`, () => {
   });
 
   test(`Finds transaction by Amount`, async ({ findTransactionPage }) => {
+    await allure.severity('normal');
+
     let amount = transactionData.debit || transactionData.credit || '';
     amount = parseAmount(amount);
 

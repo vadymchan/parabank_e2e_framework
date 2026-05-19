@@ -5,6 +5,7 @@ import {
   SIGN_IN_MISSING_CREDENTIALS_ERROR_MESSAGE,
 } from '../../../src/ui/constants/authMessages';
 import { faker } from '@faker-js/faker';
+import * as allure from 'allure-js-commons';
 
 const testParameters = [
   {
@@ -37,6 +38,8 @@ test.describe(`Sign in negative tests`, () => {
   testParameters.forEach(
     ({ scenario, useUsername, usePassword, errorMessage }) => {
       test(`Shows error when ${scenario}`, async ({ signInPage }) => {
+        await allure.severity('normal');
+
         const username = useUsername ? faker.internet.username() : '';
         const password = usePassword ? faker.internet.password() : '';
         await signInPage.open();

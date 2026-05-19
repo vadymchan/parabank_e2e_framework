@@ -1,11 +1,14 @@
 import { test } from '../_fixtures/fixtures';
 import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
+import * as allure from 'allure-js-commons';
 
 test.describe(`Account details`, () => {
   test(`Account info is shown after sign up`, async ({
     accountDetailsPage,
     signedUpUserWithOneAccount,
   }) => {
+    await allure.severity('critical');
+
     const { accountData } = signedUpUserWithOneAccount;
     const accountType = 'CHECKING';
 
