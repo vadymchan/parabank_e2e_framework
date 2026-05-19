@@ -4,7 +4,7 @@ export class TransferFundsPage {
   constructor(page, userId = 0) {
     this.page = page;
     this.userId = userId;
-    this.amountInput = page.locator('#amount');
+    this.amountField = page.locator('#amount');
     this.fromAccountIdDropdown = page.locator('#fromAccountId');
     this.toAccountIdDropdown = page.locator('#toAccountId');
     this.transferButton = page.getByRole('button', { name: 'Transfer' });
@@ -25,9 +25,9 @@ export class TransferFundsPage {
     });
   }
 
-  async fillAmountInput(amount) {
+  async fillAmountField(amount) {
     await this.step(`Fill 'Amount' field`, async () => {
-      await this.amountInput.fill(`${amount}`);
+      await this.amountField.fill(`${amount}`);
     });
   }
 

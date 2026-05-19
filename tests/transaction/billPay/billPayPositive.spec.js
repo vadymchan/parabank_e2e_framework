@@ -17,7 +17,7 @@ test.describe(`Bill Payment positive tests`, () => {
 
     await billPayPage.open();
 
-    await billPayPage.fillFormInputFields({
+    await billPayPage.fillFormInputs({
       payeeName,
       address: userData.address,
       city: userData.city,

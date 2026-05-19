@@ -1,9 +1,9 @@
-import { test } from '../_fixtures/fixtures';
-import { TRANSFER_FUNDS_SUCCESS_MESSAGE } from '../../src/ui/constants/transactionMessages';
+import { test } from '../../_fixtures/fixtures';
+import { TRANSFER_FUNDS_SUCCESS_MESSAGE } from '../../../src/ui/constants/transactionMessages';
 import {
   parseAmount,
   formatAmount,
-} from '../../src/common/helpers/currencyHelpers';
+} from '../../../src/common/helpers/currencyHelpers';
 
 const testParameters = [
   { amount: '50' },
@@ -31,7 +31,7 @@ test.describe(`Transfer Funds positive tests`, () => {
       accountsOverviewPage,
     }) => {
       await transferFundsPage.open();
-      await transferFundsPage.fillAmountInput(amount);
+      await transferFundsPage.fillAmountField(amount);
       await transferFundsPage.selectFromAccountId(fromAccountId);
       await transferFundsPage.selectToAccountId(toAccountId);
       await transferFundsPage.clickTransferButton();

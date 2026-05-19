@@ -23,3 +23,9 @@ export const BILL_PAY_AMOUNT_EMPTY_ERROR_MESSAGE =
   'The amount cannot be empty.';
 export const BILL_PAY_AMOUNT_INVALID_ERROR_MESSAGE =
   'Please enter a valid amount.';
+
+export const FIND_TRANSACTIONS_TRANSACTION_ID_ERROR_MESSAGE =
+  'Invalid transaction ID';
+export const FIND_TRANSACTIONS_DATE_ERROR_MESSAGE = 'Invalid date format';
+export const FIND_TRANSACTIONS_DATE_RANGE_ERROR_MESSAGE = 'Invalid date format';
+export const FIND_TRANSACTIONS_AMOUNT_ERROR_MESSAGE = 'Invalid amount';

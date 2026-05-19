@@ -62,7 +62,7 @@ export class BillPayPage {
     });
   }
 
-  async fillFormInputFields({
+  async fillFormInputs({
     payeeName = '',
     address = '',
     city = '',

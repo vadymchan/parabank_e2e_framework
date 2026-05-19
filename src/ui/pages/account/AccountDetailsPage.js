@@ -11,6 +11,12 @@ export class AccountDetailsPage {
     this.accountActivity = page.getByRole('heading', {
       name: 'Account Activity',
     });
+
+    const transactionTableRows = page.locator('#transactionTable tbody tr');
+    this.dateCells = transactionTableRows.locator('td:nth-child(1)');
+    this.transactionCells = transactionTableRows.locator('td:nth-child(2)');
+    this.debitCells = transactionTableRows.locator('td:nth-child(3)');
+    this.creditCells = transactionTableRows.locator('td:nth-child(4)');
   }
 
   async step(title, stepToRun) {
@@ -22,6 +28,31 @@ export class AccountDetailsPage {
       `Navigate to 'Accounts Details' page for ${accountId} account`,
       async () => {
         await this.page.goto(`activity.htm?id=${accountId}`);
+      },
+    );
+  }
+
+  async getTransactionDataFromTableRow(rowIndex) {
+    return await this.step(
+      `Get Transaction Data from row ${rowIndex}`,
+      async () => {
+        const transactionLink = await this.transactionCells
+          .nth(rowIndex)
+          .getByRole('link')
+          .getAttribute('href');
+        const transactionId = new URLSearchParams(
+          transactionLink.split('?')[1],
+        ).get('id');
+        const date = await this.dateCells.nth(rowIndex).innerText();
+        const debit = await this.debitCells.nth(rowIndex).innerText();
+        const credit = await this.creditCells.nth(rowIndex).innerText();
+
+        return {
+          transactionId,
+          date,
+          debit,
+          credit,
+        };
       },
     );
   }

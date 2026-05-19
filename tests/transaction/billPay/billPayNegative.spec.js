@@ -1,4 +1,4 @@
-import { test } from '../_fixtures/fixtures';
+import { test } from '../../_fixtures/fixtures';
 import {
   BILL_PAY_PAYEE_NAME_EMPTY_ERROR_MESSAGE,
   BILL_PAY_ADDRESS_EMPTY_ERROR_MESSAGE,
@@ -13,7 +13,7 @@ import {
   BILL_PAY_VERIFY_ACCOUNT_MISMATCHED_ERROR_MESSAGE,
   BILL_PAY_AMOUNT_EMPTY_ERROR_MESSAGE,
   BILL_PAY_AMOUNT_INVALID_ERROR_MESSAGE,
-} from '../../src/ui/constants/transactionMessages';
+} from '../../../src/ui/constants/transactionMessages';
 
 test.describe(`Bill Payment negative tests`, () => {
   test(`Shows error when all fields are empty`, async ({
@@ -70,7 +70,7 @@ test.describe(`Bill Payment negative tests`, () => {
 
     await billPayPage.open();
 
-    await billPayPage.fillFormInputFields({ account: toAccountId });
+    await billPayPage.fillFormInputs({ account: toAccountId });
 
     await billPayPage.clickSendPaymentButton();
 
@@ -88,7 +88,7 @@ test.describe(`Bill Payment negative tests`, () => {
 
     await billPayPage.open();
 
-    await billPayPage.fillFormInputFields({ verifyAccount: toAccountId });
+    await billPayPage.fillFormInputs({ verifyAccount: toAccountId });
 
     await billPayPage.clickSendPaymentButton();
 
@@ -106,8 +106,8 @@ test.describe(`Bill Payment negative tests`, () => {
     const verifyToAccountId = 42001;
     await billPayPage.open();
 
-    await billPayPage.fillFormInputFields({ account: toAccountId });
-    await billPayPage.fillFormInputFields({ verifyAccount: verifyToAccountId });
+    await billPayPage.fillFormInputs({ account: toAccountId });
+    await billPayPage.fillFormInputs({ verifyAccount: verifyToAccountId }); 
 
     await billPayPage.clickSendPaymentButton();
 
@@ -125,7 +125,7 @@ test.describe(`Bill Payment negative tests`, () => {
 
     await billPayPage.open();
 
-    await billPayPage.fillFormInputFields({ amount });
+    await billPayPage.fillFormInputs({ amount });
 
     await billPayPage.clickSendPaymentButton();
 

@@ -26,7 +26,7 @@ test.describe(`Transfer Funds negative tests`, () => {
       accountsOverviewPage,
     }) => {
       await transferFundsPage.open();
-      await transferFundsPage.fillAmountInput(amount);
+      await transferFundsPage.fillAmountField(amount);
       await transferFundsPage.selectFromAccountId(fromAccountId);
       await transferFundsPage.selectToAccountId(toAccountId);
       await transferFundsPage.clickTransferButton();
