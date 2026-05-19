@@ -1,5 +1,5 @@
-import { test } from '../_fixtures/fixtures';
-import { GENERIC_SERVER_ERROR_MESSAGE } from '../../src/ui/constants/genericMessages';
+import { test } from '../../_fixtures/fixtures';
+import { GENERIC_SERVER_ERROR_MESSAGE } from '../../../src/ui/constants/genericMessages';
 
 const testParameters = [
   { scenario: 'is empty', amount: '' },

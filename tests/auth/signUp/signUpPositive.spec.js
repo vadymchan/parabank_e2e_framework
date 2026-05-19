@@ -1,5 +1,5 @@
 import { test } from '../../_fixtures/fixtures';
-import { SUCCESSFUL_REGISTRATION_MESSAGE } from '../../../src/ui/constants/authMessages';
+import { SIGN_UP_SUCCESSFUL_REGISTRATION_MESSAGE } from '../../../src/ui/constants/authMessages';
 
 test(`Successful 'Sign Up' flow test`, async ({ userData, signUpPage }) => {
   await signUpPage.open();
@@ -8,6 +8,6 @@ test(`Successful 'Sign Up' flow test`, async ({ userData, signUpPage }) => {
   await signUpPage.clickRegisterButton();
 
   await signUpPage.assertSuccessMessageContainsText(
-    SUCCESSFUL_REGISTRATION_MESSAGE,
+    SIGN_UP_SUCCESSFUL_REGISTRATION_MESSAGE,
   );
 });

@@ -1,5 +1,5 @@
 import { testStep } from '../../../common/helpers/pwHelpers';
-import { SUCCESSFUL_REGISTRATION_MESSAGE } from '../../constants/authMessages';
+import { SIGN_UP_SUCCESSFUL_REGISTRATION_MESSAGE } from '../../constants/authMessages';
 
 export async function signUpUser(signUpPage, userData, userId = 0) {
   await testStep(
@@ -9,7 +9,7 @@ export async function signUpUser(signUpPage, userData, userId = 0) {
       await signUpPage.fillForm(userData);
       await signUpPage.clickRegisterButton();
       await signUpPage.assertSuccessMessageContainsText(
-        SUCCESSFUL_REGISTRATION_MESSAGE,
+        SIGN_UP_SUCCESSFUL_REGISTRATION_MESSAGE,
       );
     },
     userId,

@@ -1,7 +1,7 @@
 import { test } from '../../_fixtures/fixtures';
 import { UPDATE_PROFILE_RESULT_MESSAGE } from '../../../src/ui/constants/accountMessages';
 
-test.describe(`Update Contact Info positive tests`, () => {
+test.describe(`Update Profile positive tests`, () => {
   test(`Updates Profile info successfully`, async ({
     userData,
     signedUpUserWithOneAccount,

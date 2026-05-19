@@ -1,9 +1,9 @@
 import { test } from '../../_fixtures/fixtures';
 import {
-  FIND_TRANSACTIONS_TRANSACTION_ID_ERROR_MESSAGE,
-  FIND_TRANSACTIONS_DATE_ERROR_MESSAGE,
-  FIND_TRANSACTIONS_DATE_RANGE_ERROR_MESSAGE,
-  FIND_TRANSACTIONS_AMOUNT_ERROR_MESSAGE,
+  FIND_TRANSACTIONS_TRANSACTION_ID_INVALID_ERROR_MESSAGE,
+  FIND_TRANSACTIONS_DATE_INVALID_FORMAT_ERROR_MESSAGE,
+  FIND_TRANSACTIONS_DATE_RANGE_INVALID_FORMAT_ERROR_MESSAGE,
+  FIND_TRANSACTIONS_AMOUNT_INVALID_ERROR_MESSAGE,
 } from '../../../src/ui/constants/transactionMessages';
 
 test.describe(`Find Transaction negative tests`, () => {
@@ -14,7 +14,7 @@ test.describe(`Find Transaction negative tests`, () => {
     await findTransactionPage.open();
     await findTransactionPage.clickFindByTransactionIdButton();
     await findTransactionPage.assertFindByTransactionIdErrorMessageHasText(
-      FIND_TRANSACTIONS_TRANSACTION_ID_ERROR_MESSAGE,
+      FIND_TRANSACTIONS_TRANSACTION_ID_INVALID_ERROR_MESSAGE,
     );
   });
 
@@ -25,7 +25,7 @@ test.describe(`Find Transaction negative tests`, () => {
     await findTransactionPage.open();
     await findTransactionPage.clickFindByDateButton();
     await findTransactionPage.assertFindByDateErrorMessageHasText(
-      FIND_TRANSACTIONS_DATE_ERROR_MESSAGE,
+      FIND_TRANSACTIONS_DATE_INVALID_FORMAT_ERROR_MESSAGE,
     );
   });
 
@@ -36,7 +36,7 @@ test.describe(`Find Transaction negative tests`, () => {
     await findTransactionPage.open();
     await findTransactionPage.clickFindByDateRangeButton();
     await findTransactionPage.assertFindByDateRangeErrorMessageHasText(
-      FIND_TRANSACTIONS_DATE_RANGE_ERROR_MESSAGE,
+      FIND_TRANSACTIONS_DATE_RANGE_INVALID_FORMAT_ERROR_MESSAGE,
     );
   });
 
@@ -47,7 +47,7 @@ test.describe(`Find Transaction negative tests`, () => {
     await findTransactionPage.open();
     await findTransactionPage.clickFindByAmountButton();
     await findTransactionPage.assertFindByAmountErrorMessageHasText(
-      FIND_TRANSACTIONS_AMOUNT_ERROR_MESSAGE,
+      FIND_TRANSACTIONS_AMOUNT_INVALID_ERROR_MESSAGE,
     );
   });
 
@@ -60,7 +60,7 @@ test.describe(`Find Transaction negative tests`, () => {
     await findTransactionPage.fillFindByTransactionIdField(transactionId);
     await findTransactionPage.clickFindByTransactionIdButton();
     await findTransactionPage.assertFindByTransactionIdErrorMessageHasText(
-      FIND_TRANSACTIONS_TRANSACTION_ID_ERROR_MESSAGE,
+      FIND_TRANSACTIONS_TRANSACTION_ID_INVALID_ERROR_MESSAGE,
     );
   });
 
@@ -73,7 +73,7 @@ test.describe(`Find Transaction negative tests`, () => {
     await findTransactionPage.fillFindByDateField(date);
     await findTransactionPage.clickFindByDateButton();
     await findTransactionPage.assertFindByDateErrorMessageHasText(
-      FIND_TRANSACTIONS_DATE_ERROR_MESSAGE,
+      FIND_TRANSACTIONS_DATE_INVALID_FORMAT_ERROR_MESSAGE,
     );
   });
 
@@ -87,7 +87,7 @@ test.describe(`Find Transaction negative tests`, () => {
     await findTransactionPage.fillFindByDateRangeInputs(fromDate, toDate);
     await findTransactionPage.clickFindByDateRangeButton();
     await findTransactionPage.assertFindByDateRangeErrorMessageHasText(
-      FIND_TRANSACTIONS_DATE_RANGE_ERROR_MESSAGE,
+      FIND_TRANSACTIONS_DATE_RANGE_INVALID_FORMAT_ERROR_MESSAGE,
     );
   });
 
@@ -100,7 +100,7 @@ test.describe(`Find Transaction negative tests`, () => {
     await findTransactionPage.fillFindByAmountField(amount);
     await findTransactionPage.clickFindByAmountButton();
     await findTransactionPage.assertFindByAmountErrorMessageHasText(
-      FIND_TRANSACTIONS_AMOUNT_ERROR_MESSAGE,
+      FIND_TRANSACTIONS_AMOUNT_INVALID_ERROR_MESSAGE,
     );
   });
 });

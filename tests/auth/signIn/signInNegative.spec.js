@@ -1,8 +1,8 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
 import {
-  SIGN_IN_CREDENTIALS_INCORRECT_ERROR_MESSAGE,
-  SIGN_IN_ONE_FIELD_IS_EMPTY_ERROR_MESSAGE,
+  SIGN_IN_INCORRECT_CREDENTIALS_ERROR_MESSAGE,
+  SIGN_IN_MISSING_CREDENTIALS_ERROR_MESSAGE,
 } from '../../../src/ui/constants/authMessages';
 import { faker } from '@faker-js/faker';
 
@@ -11,25 +11,25 @@ const testParameters = [
     scenario: 'both fields are wrong',
     useUsername: true,
     usePassword: true,
-    errorMessage: SIGN_IN_CREDENTIALS_INCORRECT_ERROR_MESSAGE,
+    errorMessage: SIGN_IN_INCORRECT_CREDENTIALS_ERROR_MESSAGE,
   },
   {
     scenario: 'password is missing',
     useUsername: true,
     usePassword: false,
-    errorMessage: SIGN_IN_ONE_FIELD_IS_EMPTY_ERROR_MESSAGE,
+    errorMessage: SIGN_IN_MISSING_CREDENTIALS_ERROR_MESSAGE,
   },
   {
     scenario: 'username is missing',
     useUsername: false,
     usePassword: true,
-    errorMessage: SIGN_IN_ONE_FIELD_IS_EMPTY_ERROR_MESSAGE,
+    errorMessage: SIGN_IN_MISSING_CREDENTIALS_ERROR_MESSAGE,
   },
   {
     scenario: 'both fields are empty',
     useUsername: false,
     usePassword: false,
-    errorMessage: SIGN_IN_ONE_FIELD_IS_EMPTY_ERROR_MESSAGE,
+    errorMessage: SIGN_IN_MISSING_CREDENTIALS_ERROR_MESSAGE,
   },
 ];
 

@@ -1,4 +1,12 @@
 import { expect, testStep } from '../../../common/helpers/pwHelpers';
+import {
+  UPDATE_PROFILE_FIRST_NAME_REQUIRED_ERROR_MESSAGE,
+  UPDATE_PROFILE_LAST_NAME_REQUIRED_ERROR_MESSAGE,
+  UPDATE_PROFILE_ADDRESS_REQUIRED_ERROR_MESSAGE,
+  UPDATE_PROFILE_CITY_REQUIRED_ERROR_MESSAGE,
+  UPDATE_PROFILE_STATE_REQUIRED_ERROR_MESSAGE,
+  UPDATE_PROFILE_ZIP_CODE_REQUIRED_ERROR_MESSAGE,
+} from '../../../ui/constants/accountMessages';
 
 export class UpdateProfilePage {
   constructor(page, userId = 0) {
@@ -55,9 +63,26 @@ export class UpdateProfilePage {
     });
   }
 
-  async assertErrorMessage(errorFieldLocator, messageText) {
-    await this.step(`Assert the ${messageText} error is shown`, async () => {
-      await expect(errorFieldLocator).toHaveText(messageText);
+  async assertAllRequiredFieldsErrors() {
+    await this.step(`Assert all required fields show errors`, async () => {
+      await expect(this.firstNameErrorMessage).toHaveText(
+        UPDATE_PROFILE_FIRST_NAME_REQUIRED_ERROR_MESSAGE,
+      );
+      await expect(this.lastNameErrorMessage).toHaveText(
+        UPDATE_PROFILE_LAST_NAME_REQUIRED_ERROR_MESSAGE,
+      );
+      await expect(this.addressErrorMessage).toHaveText(
+        UPDATE_PROFILE_ADDRESS_REQUIRED_ERROR_MESSAGE,
+      );
+      await expect(this.cityErrorMessage).toHaveText(
+        UPDATE_PROFILE_CITY_REQUIRED_ERROR_MESSAGE,
+      );
+      await expect(this.stateErrorMessage).toHaveText(
+        UPDATE_PROFILE_STATE_REQUIRED_ERROR_MESSAGE,
+      );
+      await expect(this.zipCodeErrorMessage).toHaveText(
+        UPDATE_PROFILE_ZIP_CODE_REQUIRED_ERROR_MESSAGE,
+      );
     });
   }
 

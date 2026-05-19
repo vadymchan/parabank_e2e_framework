@@ -1,6 +1,6 @@
-import { test } from '../_fixtures/fixtures';
-import { BILL_PAY_SUCCESS_MESSAGE } from '../../src/ui/constants/transactionMessages';
-import { formatAmount } from '../../src/common/helpers/currencyHelpers';
+import { test } from '../../_fixtures/fixtures';
+import { BILL_PAY_SUCCESS_MESSAGE } from '../../../src/ui/constants/transactionMessages';
+import { formatAmount } from '../../../src/common/helpers/currencyHelpers';
 
 test.describe(`Bill Payment positive tests`, () => {
   const toAccountId = 42000;
