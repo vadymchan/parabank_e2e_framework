@@ -3,6 +3,7 @@ import { AccountsOverviewPage } from '../../src/ui/pages/account/AccountsOvervie
 import { AccountDetailsPage } from '../../src/ui/pages/account/AccountDetailsPage';
 import { OpenAccountPage } from '../../src/ui/pages/account/OpenAccountPage';
 import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
+import { UpdateProfilePage } from '../../src/ui/pages/account/UpdateProfilePage';
 
 export const test = base.extend<{
   accountsOverviewPage;
@@ -11,6 +12,7 @@ export const test = base.extend<{
   transferFundsPage;
   signedUpUserWithOneAccount;
   signedUpUserWithTwoAccounts;
+  updateProfilePage;
 }>({
   accountsOverviewPage: async ({ page }, use) => {
     const accountsOverviewPage = new AccountsOverviewPage(page);
@@ -59,5 +61,10 @@ export const test = base.extend<{
     ];
 
     await use(accountsData);
+  },
+  updateProfilePage: async ({ page }, use) => {
+    const updateProfilePage = new UpdateProfilePage(page);
+
+    await use(updateProfilePage);
   },
 });
