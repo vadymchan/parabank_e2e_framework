@@ -9,7 +9,6 @@ export const test = base.extend<{
   accountsOverviewPage;
   accountDetailsPage;
   openAccountPage;
-  transferFundsPage;
   signedUpUserWithOneAccount;
   signedUpUserWithTwoAccounts;
   updateProfilePage;

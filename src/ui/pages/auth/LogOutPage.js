@@ -13,7 +13,7 @@ export class LogOutPage {
 
   async clickLogOutButton() {
     await this.step(`Click 'Log Out' button`, async () => {
-      return await this.logOutButton.click();
+      await this.logOutButton.click();
     });
   }
 }

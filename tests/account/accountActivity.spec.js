@@ -1,5 +1,4 @@
 import { test } from '../_fixtures/fixtures';
-import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
 import * as allure from 'allure-js-commons';
 
 const testParameters = [
@@ -27,6 +26,8 @@ test.describe(`Account activity`, () => {
       signedUpUserWithTwoAccounts,
       accountDetailsPage,
     }) => {
+      await allure.severity('normal');
+
       const accountData = signedUpUserWithTwoAccounts;
       const firstAccount = accountData[0];
       await accountDetailsPage.open(firstAccount.accountId);

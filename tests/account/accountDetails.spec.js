@@ -1,5 +1,4 @@
 import { test } from '../_fixtures/fixtures';
-import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
 import * as allure from 'allure-js-commons';
 
 test.describe(`Account details`, () => {

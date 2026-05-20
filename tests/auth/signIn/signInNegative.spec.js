@@ -1,5 +1,4 @@
 import { test } from '../../_fixtures/fixtures';
-import { signUpUser } from '../../../src/ui/actions/auth/signUpUser';
 import {
   SIGN_IN_INCORRECT_CREDENTIALS_ERROR_MESSAGE,
   SIGN_IN_MISSING_CREDENTIALS_ERROR_MESSAGE,

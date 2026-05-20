@@ -1,5 +1,4 @@
 import { test } from '../_fixtures/fixtures';
-import { signUpUser } from '../../src/ui/actions/auth/signUpUser';
 import { OPEN_NEW_ACCOUNT_SUCCESS_MESSAGE } from '../../src/ui/constants/accountMessages';
 import * as allure from 'allure-js-commons';
 

@@ -9,8 +9,6 @@ import {
   CUSTOMER_LOOKUP_SSN_REQUIRED_ERROR_MESSAGE,
   CUSTOMER_LOOKUP_SERVER_ERROR_MESSAGE,
 } from '../../../src/ui/constants/authMessages';
-import { generateNewUserData } from '../../../src/common/testData/generateNewUserData';
-import { Logger } from '../../../src/common/logger/Logger';
 import * as allure from 'allure-js-commons';
 
 test.describe(`Customer lookup negative tests`, () => {

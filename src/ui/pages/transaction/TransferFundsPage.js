@@ -57,7 +57,7 @@ export class TransferFundsPage {
 
   async assertAmountResultHasText(amount) {
     await this.step(
-      `Assert the transfered amount of '${amount}' is shown`,
+      `Assert the transferred amount of '${amount}' is shown`,
       async () => {
         await expect(this.amountResult).toHaveText(
           `$${Number(amount).toFixed(2)}`,
