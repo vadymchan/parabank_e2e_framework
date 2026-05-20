@@ -115,7 +115,7 @@ export class AccountDetailsPage {
 
   async assertAccountActivityFiltering(activityPeriod, transactionType) {
     await this.step(
-      `Assert Account Activity filters transactions by activityPeriod=''${activityPeriod}', transactionType='${transactionType}'`,
+      `Assert Account Activity filters transactions by activityPeriod='${activityPeriod}', transactionType='${transactionType}'`,
       async () => {
         await this.assertActivityPeriodRowsAreVisible(activityPeriod);
         await this.assertTransactionTypeRowsAreVisible(transactionType);

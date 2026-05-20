@@ -4,6 +4,7 @@ import * as allure from 'allure-js-commons';
 
 test.describe(`Customer lookup positive tests`, () => {
   test(`Log in using 'Forgot login info?' page`, async ({
+    userData,
     signedUpUserWithOneAccount,
     customerLookupPage,
   }) => {
