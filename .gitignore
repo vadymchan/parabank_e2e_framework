@@ -5,3 +5,7 @@ node_modules/
 /playwright/.cache/
 ./vscode
 allure-results/
+
+# personal working notes (not part of the project)
+locators.md
+questions.md
