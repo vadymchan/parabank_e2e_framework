@@ -1,41 +1,55 @@
-# Task Description
+# ParaBank E2E Test Framework
 
-To see the description of the task assignment [follow the link](https://github.com/mate-academy/qa_pw_parabank_test_framework/blob/main/TaskDescription.md). 
+End-to-end UI tests for the [ParaBank](https://parabank.parasoft.com/parabank/) demo banking application, built with Playwright and JavaScript. Positive and negative coverage across authentication, accounts and transactions.
 
-# Repository Overview
+## What it covers
 
-This repository contains a test automation framework for the [Parabank](https://parabank.parasoft.com/parabank/index.htm) bank application testing. 
+21 spec files across three domains:
 
-# How to use this project
+- **Auth** - sign-up, sign-in, customer lookup (forgotten login), log-out
+- **Accounts** - accounts overview, account details, open new account, account activity, update profile
+- **Transactions** - transfer funds, bill pay, request loan, find transactions
 
-## Installation steps
+Features with input validation are covered in positive and negative pairs.
 
-To install the project follow the next steps:
+## Architecture
 
-1. Install Node.js.
-2. Run the installation command in the project root.:
+- **Page Object Model** - 12 page objects grouped by domain (`src/ui/pages/{auth,account,transaction}`)
+- **Actions layer** - reusable multi-step flows built on top of page objects (`src/ui/actions`)
+- **Domain message constants** - expected UI messages kept in one place (`src/ui/constants`), so assertions reference a single source of truth instead of inline strings
+- **Fixtures** - wire page objects and test data into tests (`tests/_fixtures`)
+- **Generated test data** - unique user data via Faker (`src/common/testData`)
+
+## Tech stack
+
+- [Playwright](https://playwright.dev/) - test runner and browser automation
+- JavaScript
+- [Allure](https://allurereport.org/) - reporting
+- ESLint + Prettier, husky + lint-staged - linting and pre-commit hooks
+
+## Getting started
+
+Install dependencies and browsers:
+
 ```bash
 npm ci
-```
-3. Run the browsers installation in the project root.
-```bash
 npx playwright install
 ```
-4. Install Allure commandline tool (Allure requires Java 8 or higher).
+
+Allure requires Java 8 or higher. Install the Allure CLI:
+
 ```bash
 npm install -g allure-commandline
 ```
 
-## How to run the tests
+## Running the tests
 
-To run the tests execute the following command in the terminal
 ```bash
 npx playwright test
 ```
 
-## How to generate report
+## Report
 
-To generate report execute the following commans in the terminal
 ```bash
 allure serve allure-results
 ```
